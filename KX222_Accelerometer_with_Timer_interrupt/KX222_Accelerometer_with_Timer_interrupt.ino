@@ -1,3 +1,11 @@
+/*
+In this program the data acquisition for the data is done at the same frequency as that ofthe ODR using
+Timer interrupt of Timer 1 of Arduino. In this program the G mode is set and the ODR too , and are not selectable. 
+Changes to that can be made by changing the register values and is mentioned in the comments. 
+*/
+
+
+
 #include <SPI.h>
 int READ = B10000000;
 int WRITE = B00000000;
