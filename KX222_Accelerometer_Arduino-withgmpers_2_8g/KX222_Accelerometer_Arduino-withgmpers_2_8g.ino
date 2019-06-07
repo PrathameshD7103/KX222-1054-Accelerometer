@@ -69,7 +69,7 @@ void loop() {
     Serial.println(" ");
 
     Serial.println("INS 2: ");
-    Serial.println(readRegister(0x13),BIN);
+    Serial.println(readRegister(0x13),BIN);                      
     Serial.println("Status Reg: ");
     Serial.println(readRegister(0x15),BIN);
     Serial.println("Buffer read: ");
