@@ -1,5 +1,5 @@
 /*
- * This program is for +-8g 16-Bit Res 3 axis readings of KX222-1054 Accelerometer  
+ * This program is for +-8g 16-Bit Res 3 axis readings both in g and m/(sec)^2 of KX222-1054 Accelerometer  
  */
 
 #include <SPI.h>
