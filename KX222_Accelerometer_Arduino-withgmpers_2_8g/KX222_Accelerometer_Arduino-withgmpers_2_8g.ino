@@ -19,11 +19,11 @@ void setup() {
 
 void loop() {
     //Select High Resolution Mode
-    writeRegister(0x3B, B11100000);                              //Buffer resolution is 16-bit and buffer operation mode selected is FILO
-    writeRegister(0x1B, B00001101);                              //6400hz,For 12800 change last four bits to 1110 and for 25600 change last four bits to 1111
-    writeRegister(0x18, B11100000);                              //+-8g, For +-16g change bit 4 and 5 to 01 nad 10 for +-32g 
-    writeRegister(0x1C, B00111000);                              //Physical interrupt register
-    writeRegister(0x1F, B00010000);                              //buffer full interrupt,data ready interrupt
+    writeRegister(0x3B, 0xE0);                                   //Buffer resolution is 16-bit and buffer operation mode selected is FILO
+    writeRegister(0x1B, 0x13);                                   //6400hz,For 12800 change last four bits to 1110 and for 25600 change last four bits to 1111
+    writeRegister(0x18, 0xE0);                                   //+-8g, For +-16g change bit 4 and 5 to 01 nad 10 for +-32g 
+    writeRegister(0x1C, 0x38);                                   //Physical interrupt register
+    writeRegister(0x1F, 0x10);                                   //buffer full interrupt,data ready interrupt
     //Reading the data of axes data
     Serial.println("X Axis>>>>"); 
     Serial.println("X HIGH"); 
