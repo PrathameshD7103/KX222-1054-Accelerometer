@@ -77,7 +77,7 @@ void loop() {
 }
 int readRegister(int registerAddress){
    int result = 0;
-   int dataToSend = READ + registerAddress;                       //take the chip select low to select the device
+   int dataToSend = READ + registerAddress;                       //dataToSend is a prerequisite for data acquisition 
    digitalWrite(chipSelectPin, LOW);                              //Slave select pin set to low to initiate SPI transfer
    SPI.transfer(dataToSend);                                      //send the device the register you want to read
    result=SPI.transfer(0x00);                                     
