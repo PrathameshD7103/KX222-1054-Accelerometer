@@ -3,7 +3,7 @@
  */
 
 #include <SPI.h>
-int READ = B10000000;     
+int READ = B10000000;                                         
 int WRITE = B00000000;
 
 const int chipSelectPin = 53;
@@ -78,17 +78,17 @@ void loop() {
 int readRegister(int registerAddress){
    int result = 0;
    int dataToSend = READ + registerAddress;                       //take the chip select low to select the device
-   digitalWrite(chipSelectPin, LOW);
+   digitalWrite(chipSelectPin, LOW);                              //Slave select pin set to low to initiate SPI transfer
    SPI.transfer(dataToSend);                                      //send the device the register you want to read
-   result=SPI.transfer(0x00);
-   digitalWrite(chipSelectPin, HIGH);
-   return(result);
+   result=SPI.transfer(0x00);                                     
+   digitalWrite(chipSelectPin, HIGH);                             //Slave select pin set to high to terminate SPI operation
+   return(result);                                                //Register value received
 }
 
-void writeRegister(int registerAddress, int value) {              //now combine the register address and the command longo one long:
-  int dataToSend = WRITE + registerAddress;
-  digitalWrite(chipSelectPin, LOW);
-  SPI.transfer(dataToSend); 
-  SPI.transfer(value);  
-  digitalWrite(chipSelectPin, HIGH);
+void writeRegister(int registerAddress, int value) {              
+  int dataToSend = WRITE + registerAddress;                      //writing a value to register requires first 8-bits to be 0s and then the next bits are the register address
+  digitalWrite(chipSelectPin, LOW);                              //Slave select pin set to low to initiate SPI transfer
+  SPI.transfer(dataToSend);                                      
+  SPI.transfer(value);                                           //Value to be written to the register
+  digitalWrite(chipSelectPin, HIGH);                             //Slave select pin set to high to terminate SPI operation
 }
