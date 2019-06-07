@@ -3,7 +3,6 @@
  */
 
 #include <SPI.h>
-volatile byte state = LOW;
 int READ = B10000000;     
 int WRITE = B00000000;
 
