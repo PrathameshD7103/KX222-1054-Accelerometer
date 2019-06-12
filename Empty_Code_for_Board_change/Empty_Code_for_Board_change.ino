@@ -6,7 +6,6 @@ const int sdi = 51;                                                             
 const int sdo = 50;
 
 void setup() {
-  Serial.begin(115200);
   SPI.begin();  
   pinMode(chipSelectPin, OUTPUT);
   digitalWrite(chipSelectPin, HIGH);
